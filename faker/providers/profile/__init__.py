@@ -2,6 +2,8 @@ import itertools
 
 from .. import BaseProvider
 
+localized = True
+
 
 class Provider(BaseProvider):
     """
