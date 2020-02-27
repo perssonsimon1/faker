@@ -10,8 +10,14 @@ class TestEnUS(unittest.TestCase):
         self.fake = Faker('')
         Faker.seed(0)
 
-    def test_contact_info_1(self):
+    def test_contact_info(self):
         res = self.fake.contact_info()
-        print(res)
 
         assert res
+        assert isinstance(res, dict)
+        assert "address" in res
+        assert "name" in res
+        assert "phone" in res
+        assert isinstance(res['address'], str)
+        assert isinstance(res['name'], str)
+        assert isinstance(res['phone'], str)

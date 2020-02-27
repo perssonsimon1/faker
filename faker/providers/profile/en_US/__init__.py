@@ -17,8 +17,6 @@ class Provider(ProfileProvider):
         Generates a complete profile.
         If "fields" is not empty, only the fields in the list will be returned
         """
-        print([m for m in dir(self.generator)].index('state_abbr'))
-
         state_abbr = self.generator.state_abbr()
         postcode = self.generator.postcode_in_state(state_abbr=state_abbr)
         street = self.generator.street_address()
@@ -32,8 +30,6 @@ class Provider(ProfileProvider):
             phone = re.sub(r'001[\-]?\d{3}[\-]', area_code, phone)
         else:
             phone = re.sub(r'[\(\-]?\d{3}[\)\-]', area_code, phone)
-        print(state_abbr)
-        print(phone)
 
         return {
             'name': self.generator.name(),
